@@ -1,0 +1,38 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!--@subject {{trans "Reset your %store_name password" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var store.frontend_name":"Store Name",
+"var this.getUrl($store, 'customer/account/')":"Customer Account URL",
+"var this.getUrl($store,'customer/account/createPassword',[_query:[id:$customer.id,token:$customer.rp_token],_nosid:1])":"Password Reset URL",
+"var customer.name":"Customer Name"
+} @-->
+{{template config_path="design/email/header_template"}}
+<!--{{trans "%name," name=$customer.name}}-->
+<p class="greeting">{{trans "Dear"}} {{trans "%name," name=$customer.name}}</p>
+<p>{{trans "You have not changed your login password for so many days."}}</p>
+<p>{{trans "For security purposes, could you please change your login password?:"}}</p>
+
+<table class="button" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <table class="inner-wrapper" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                    <td align="center">
+                        <a href="{{var this.getUrl($store,'customer/account/createPassword',[_query:[id:$customer.id,token:$customer.rp_token],_nosid:1])}}" target="_blank">{{trans "Set a New Password"}}</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<p>{{trans "To change your password please click on that button"}}</p>
+<p>{{trans "Note: If you don’t feel the need, please feel free to ignore this email."}}</p>
+
+
+<p>{{trans "Sincerely yours,"}}</p>
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job instance="Srinivas\PasswordResetter\Cron\PasswordReset" method="execute" name="srinivas_passwordresetter_cron">
+            <schedule>0 0 * * *</schedule> <!-- here you need to schedule time to run cron job -->
+        </job>
+    </group>
+</config>
